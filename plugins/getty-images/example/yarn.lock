@@ -8010,10 +8010,10 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-photoeditorsdk@5.9.0:
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/photoeditorsdk/-/photoeditorsdk-5.9.0.tgz#6f21a898627c3e6b0bdc31ee820f549faa33c242"
-  integrity sha512-5Y0uR81FXa1nepUelua7su7jcA2bO+GTaGiKvTf+UvTQmcu+AJLKgeRKVHaWQBwi4W6Sfo/WjqLf+WrpynA0wA==
+photoeditorsdk@5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/photoeditorsdk/-/photoeditorsdk-5.10.0.tgz#2ddb8ccf0dd25c77d2391a46a734b345a0537c7a"
+  integrity sha512-ZeCO7RqF8BNF10ZhPVWuovE58SE+K5qeJG/zy1gHE63rZ2TUwRpDuZ+/Y0ztWr66rvAfPscOQ2LdA1kT98VQFA==
 
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.2:
   version "2.2.2"

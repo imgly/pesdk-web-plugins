@@ -3,6 +3,8 @@
 ## Requirements to run the example
 
 * Getty Images public api and client secret key
+* Run `yarn && yarn build` in `/plugins/getty-images`
+* Run `yarn` in `/plugins/getty-images/example`
 * Run server and client
 
 ## Start the server

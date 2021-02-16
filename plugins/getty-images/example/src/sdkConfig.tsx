@@ -65,7 +65,7 @@ const GettyToolbar: React.FC<CustomToolProps> = props => {
 
 // const GettyExportBtn = createGettyImagesExportButton({
 //         onConfirm: onLicense => {
-//             if (window.confirm('Licence the image?')) {
+//             if (window.confirm('License the image?')) {
 //                 onLicense();
 //             }
 //         },
@@ -74,7 +74,7 @@ const GettyToolbar: React.FC<CustomToolProps> = props => {
 // or create react component
 const GettyExportBtn: React.FC<CustomButtonProps> = props => {
   const onConfirm: OnConfirm = useCallback(onLicense => {
-    if (window.confirm('Licence the image?')) {
+    if (window.confirm('License the image?')) {
       onLicense();
     }
   }, []);

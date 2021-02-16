@@ -3,7 +3,7 @@
 * [Getty Images](https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images)
 
 
-## PhotoEditorSDK Documentation
+## PhotoEditor SDK Documentation
 Visit our [docs](https://docs.photoeditorsdk.com)
 
 ## License

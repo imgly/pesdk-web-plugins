@@ -4,7 +4,7 @@
 
 This plugin helps to integrate Getty Images API into PhotoEditorSDK.
 
-You need to use own backend endpoint that provides [OAuth token](https://developer.gettyimages.com/docs/oauth-2.0/) for Getty Images API.
+You need to use your own backend endpoint that provides an [OAuth token](https://developer.gettyimages.com/docs/oauth-2.0/) for the Getty Images API.
 
 
 ### Getting Started
@@ -94,18 +94,18 @@ const GettyToolbarAlt: React.FC<CustomToolProps> = props => {
 
 #### Customization
 
-You can replace toolbar using any library that you want or have in
+You can replace the toolbar using any library that you want or have in
 the app environment.
 
-To override toolbar you must keep:
+To override the toolbar you must keep:
 
-* createAPIClient instance
-* gettyStore calls
+* `createAPIClient` instance
+* `gettyStore` calls
 * `handleSetImage` function
 
 ### Export button
 
-The export button should be used to get higher resolution and license Getty image.
+The export button should be used to get a higher resolution and licensed image from Getty Images.
 
 ```typescript jsx
 
@@ -140,18 +140,18 @@ const ExportButtonAlt: React.FC<CustomButtonProps> = props => {
 
 You can replace the export button with a custom one.
 
-To override toolbar you must keep:
+To override the toolbar you must keep:
 
-* Passing custom button props if `ContainedPrimaryButton` going to be used
+* Passing custom button props if `ContainedPrimaryButton` is going to be used
 * `onLicenseImage` function
 
 
-## PhotoeditorSDK Documentation
+## PhotoEditor SDK Documentation
 Visit our [docs](https://docs.photoeditorsdk.com)
 
 ## Examples
-[PhotoeditorSDK & GettyImages example](https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/example)
-[PhotoeditorSDK examples](https://www.photoeditorsdk.com/)
+[PhotoEditor SDK & Getty Images  example](https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/example)
+[PhotoEditor SDK examples](https://www.photoeditorsdk.com/)
 
 ## License
 Please see [LICENSE](https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/LICENSE.md) for licensing details.

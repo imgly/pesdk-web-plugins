@@ -23,9 +23,31 @@
   "scripts": {
     "build": "yarn microbundle src/index.ts --jsx React.createElement --name PluginGettyImages"
   },
+  "keywords": [
+    "photo",
+    "image",
+    "photoeditor",
+    "getty",
+    "sdk",
+    "api",
+    "search"
+  ],
   "author": {
     "name": "img.ly GmbH",
     "email": "contact@img.ly"
+  },
+  "homepage": "https://www.photoeditorsdk.com/",
+  "bugs": {
+    "url": "https://support.photoeditorsdk.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imgly/pesdk-web-plugins.git",
+    "directory": "plugins/getty-images"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
   },
   "license": "BSD-3-Clause",
   "licenseFilename": "LICENSE.md",

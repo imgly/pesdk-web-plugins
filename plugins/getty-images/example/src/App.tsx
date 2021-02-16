@@ -8,15 +8,24 @@
   The license agreement can be found under the following link:
   https://www.photoeditorsdk.com/LICENSE.txt
 */
-import React, { useEffect } from 'react';
-import { PhotoEditorSDKUI } from 'photoeditorsdk';
+import React, { useEffect, useState } from 'react';
+import { EditorApi, PhotoEditorSDKUI, UIEvent } from 'photoeditorsdk';
 import { sdkConfig } from './sdkConfig';
 
 export const App = () => {
+  const [editor, setEditor] = useState<EditorApi>();
   useEffect(() => {
     (async () => {
-      await PhotoEditorSDKUI.init(sdkConfig);
+      setEditor(await PhotoEditorSDKUI.init(sdkConfig));
     })();
   }, []);
+
+  useEffect(() => {
+    if (!editor) return;
+    editor.on(UIEvent.EXPORT, async img => {
+      alert('Image exported!');
+    });
+  }, [editor]);
+
   return <div className="editor" />;
 };

@@ -109,9 +109,10 @@ export const sdkConfig: Configuration = {
       en: {
         customTool: {
           title: 'Getty Images',
+          placeholder: 'Search the world’s best images',
         },
         mainCanvasActions: {
-          buttonExport: 'Replace image',
+          buttonExport: 'Export image',
         },
       },
     },

@@ -149,6 +149,24 @@ To override the toolbar you must keep:
 * `onLicenseImage` function
 
 
+## Localization
+
+The plugin accepts `title` and `placeholder` string in [localization object](https://docs.photoeditorsdk.com/guides/html5/v5_10/customization/localization)
+
+```json
+{
+    "custom": {
+        "en": {
+            "customTool": {
+                "title": "Getty Images",
+                "placeholder": "Search the world’s best images"
+            }
+        }
+    }
+}
+```
+
+
 ## PhotoEditor SDK Documentation
 Visit our [docs](https://docs.photoeditorsdk.com)
 

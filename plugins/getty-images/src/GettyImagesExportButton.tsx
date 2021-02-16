@@ -20,7 +20,10 @@ import {
 import { GettyImage, ImageSize } from './api';
 import { getHeight, gettyStore } from './helpers';
 
-export type OnConfirm = (onLicense: () => void, image: GettyImage) => void;
+export type OnConfirm = (
+  onLicense: () => Promise<void>,
+  image: GettyImage,
+) => void;
 
 export type GettyImagesExportButtonProps = {
   /**
@@ -40,15 +43,14 @@ export const GettyImagesExportButton: React.FC<
   const setImage = useSetImage();
 
   // license getty image
-  const onLicenseImage: React.MouseEventHandler<HTMLButtonElement> = useCallback(
-    e => {
+  const onLicenseImage = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
       const { img, client } = gettyStore.get();
       if (!img || !client) {
-        // todo fire an error
-        return;
+        throw new Error(`Image or API client not found to proceed licensing`);
       }
       setLoading(true);
-      client
+      return client
         .downloadImage(img.id, {
           // download medium sized image or larges if not found
           height: getHeight(img, imageSize),

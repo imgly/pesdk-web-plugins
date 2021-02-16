@@ -66,11 +66,14 @@ export type GettyImagesToolbarProps = {
     apiKey: string;
     // promise that returns OAuth token
     fetchToken(): Promise<string>;
-    // handle errors occurred during API call
+    /**
+     * handle errors occurred during API call
+     * https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/src/types.ts
+     */
     onError: OnError;
     /**
      * configure image search params
-     * Typescript types https://github.com/imgly/pesdk-web-plugins/blob/main/plugins/getty-images/src/api/searchImages.ts
+     * Typescript types https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/src/api/searchImages.ts
      * Getty API https://api.gettyimages.com/swagger/index.html#Images
      */
     searchParams?: SearchImagesParams;

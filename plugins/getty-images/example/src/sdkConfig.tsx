@@ -42,7 +42,7 @@ const fetchToken = () => {
 };
 
 // const GettyToolbar = createGettyImagesToolbar({
-//         apiKey: 'srsn7qu3ampur9ar2zt49cw9',
+//         apiKey: process.env.REACT_APP_API_KEY || '',
 //         fetchToken,
 //         onError: num => {
 //             console.log(`Caught error ${num}`);

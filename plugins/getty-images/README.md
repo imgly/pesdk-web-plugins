@@ -48,6 +48,12 @@ const sdkConfiguration = {
 }
 ```
 
+## Examples
+
+[PhotoEditor SDK & Getty Images  example](https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/example)
+
+[Codesandox](https://codesandbox.io/s/getty-images-react-81i4g?file=/src/App.tsx)
+
 ### Toolbar component
 
 Default Getty Images toolbar represents a debounced input for search
@@ -169,12 +175,6 @@ The plugin accepts `title` and `placeholder` string in [localization object](htt
 
 ## PhotoEditor SDK Documentation
 Visit our [docs](https://docs.photoeditorsdk.com)
-
-## Examples
-
-[PhotoEditor SDK & Getty Images  example](https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/example)
-
-[PhotoEditor SDK examples](https://www.photoeditorsdk.com/)
 
 ## License
 Please see [LICENSE](https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/LICENSE.md) for licensing details.

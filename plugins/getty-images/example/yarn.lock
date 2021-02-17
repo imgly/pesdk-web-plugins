@@ -1429,7 +1429,7 @@
     rimraf "^3.0.2"
 
 "@pesdk/getty-images@file:..":
-  version "1.0.0"
+  version "0.0.1"
   dependencies:
     react-query "3.5.12"
     use-debounce "5.2.0"

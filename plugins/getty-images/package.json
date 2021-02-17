@@ -1,6 +1,6 @@
 {
   "name": "@pesdk/getty-images",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "dist/getty-images.js",
   "umd:main": "dist/getty-images.umd.js",
   "module": "dist/getty-images.m.js",
@@ -8,7 +8,8 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE.md"
   ],
   "dependencies": {
     "react-query": "3.5.12",
@@ -21,7 +22,8 @@
     "styled-components": ">= 4.0.0"
   },
   "scripts": {
-    "build": "yarn microbundle src/index.ts --jsx React.createElement --name PluginGettyImages"
+    "build": "yarn microbundle src/index.ts --jsx React.createElement --name PluginGettyImages",
+    "test": ""
   },
   "keywords": [
     "photo",

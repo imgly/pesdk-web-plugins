@@ -26,7 +26,7 @@ export function useIntersectionObserver({
   threshold = 1.0,
   rootMargin = '0px',
   enabled = true,
-}: ObserverOptions) {
+}: ObserverOptions): void {
   React.useEffect(() => {
     const el = target.current;
     if (!enabled || !el) {

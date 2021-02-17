@@ -47,7 +47,9 @@ export type DisplaySize = {
   uri: string;
 };
 
-// https://api.gettyimages.com/swagger/index.html
+/**
+ * https://api.gettyimages.com/swagger/index.html
+ */
 export type SearchImagesParams = {
   'Accept-Language'?: string;
   'GI-Country-Code'?: string;
@@ -107,7 +109,9 @@ export interface GettyImage {
     height: number;
   };
   title: string;
-  // `download_sizes` should be enabled in search params to get sizes
+  /**
+   * `download_sizes` should be enabled in search params to get sizes
+   */
   download_sizes: DownloadSize[];
 }
 

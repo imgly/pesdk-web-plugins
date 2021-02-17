@@ -31,11 +31,13 @@ export const getDisplaySize = (
 ): DisplaySize | undefined =>
   image.display_sizes.find(i => i.name === sizeName);
 
-// calculate received search results and check if more items available to request next page
+/**
+ * Calculate received search results and check if more items available to request next page
+ */
 export const hasNextPage = (
   result: SearchImagesResponse[],
   maxPerPage: number,
-) => {
+): boolean => {
   const lastRes = result[result.length - 1];
   const totalReceived =
     result.length * maxPerPage - maxPerPage + lastRes.images.length;
@@ -49,12 +51,15 @@ type GettyStore = {
 
 let storeData: GettyStore = {};
 
+/**
+ * Store to synchronize toolbar and export button
+ */
 export const gettyStore = {
-  set: (data: Partial<GettyStore>) => {
+  set: (data: Partial<GettyStore>): void => {
     storeData = {
       ...storeData,
       ...data,
     };
   },
-  get: () => storeData,
+  get: (): GettyStore => storeData,
 };

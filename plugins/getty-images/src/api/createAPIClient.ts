@@ -19,9 +19,9 @@ import {
 
 export const baseUrl = 'https://api.gettyimages.com/v3/';
 
-const paramsToString = <T extends any>(params: T) =>
-  // quick solution instead of picking up the library to covert object to search params
-  new URLSearchParams(params as any).toString();
+const paramsToString = <T>(params: T) =>
+  // use never quick solution instead of picking up the library to covert object to search params
+  new URLSearchParams(params as never).toString();
 
 const getRequestOptions = (apiKey: string, secret: string): RequestInit => {
   const myHeaders = new Headers();
@@ -44,10 +44,14 @@ type GettyImageClientParams = {
 };
 
 const refetchMaxNum = 3;
-// use refetch times constant to avoid recurcive getty requests
-// should stop refetching after refetchMaxNum
+
+/**
+ * use refetch times constant to avoid recursive getty requests
+ * should stop refetching after refetchMaxNum
+ */
 let refetchTimes = 0;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const createAPIClient = ({
   apiKey,
   token,

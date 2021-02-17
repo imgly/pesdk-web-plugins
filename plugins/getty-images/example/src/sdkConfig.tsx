@@ -9,18 +9,17 @@
   https://www.photoeditorsdk.com/LICENSE.txt
 */
 import {
-  createGettyImagesExportButton,
-  createGettyImagesToolbar,
   GettyImagesExportButton,
   GettyImagesToolControlBar,
   OnConfirm,
+  SortOrder,
 } from '@pesdk/getty-images';
 import {
+  Configuration,
+  CustomButtonProps,
+  CustomToolProps,
   ExportFormat,
   Tool,
-  Configuration,
-  CustomToolProps,
-  CustomButtonProps,
 } from 'photoeditorsdk';
 import React, { useCallback } from 'react';
 
@@ -56,6 +55,9 @@ const GettyToolbar: React.FC<CustomToolProps> = props => {
       {...props}
       apiKey={process.env.REACT_APP_API_KEY || ''}
       fetchToken={fetchToken}
+      searchParams={{
+        sort_order: SortOrder.BestMatch,
+      }}
       onError={num => {
         console.log(`Caught error ${num}`);
       }}

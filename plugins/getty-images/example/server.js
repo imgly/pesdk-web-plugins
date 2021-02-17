@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
   This file is part of an img.ly Software Development Kit.
   Copyright (C) 2016-2021 img.ly GmbH <contact@img.ly>

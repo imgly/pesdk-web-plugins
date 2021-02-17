@@ -47,7 +47,7 @@ interface Props {
   client: ReturnType<typeof createAPIClient>;
   language: CustomToolProps['language'];
   onError: OnError;
-  searchParams?: SearchImagesParams;
+  searchParams?: Partial<SearchImagesParams>;
   displaySize?: DisplaySizeName;
 }
 
@@ -70,7 +70,7 @@ const ToolControlBar: React.FC<Props> = ({
     isFetchingNextPage,
     fetchNextPage,
   } = useInfiniteQuery(
-    ['images', debouncedPhrase],
+    ['images', debouncedPhrase, searchParams],
     ({ pageParam = 1 }) => {
       const params: SearchImagesParams = {
         phrase: debouncedPhrase,
@@ -143,22 +143,28 @@ const queryClient = new QueryClient({
 });
 
 export type GettyImagesToolbarProps = {
-  // public getty images api key
+  /**
+   * Public getty images api key
+   */
   apiKey: string;
-  // promise that returns OAuth token
+  /**
+   * Promise that returns OAuth token
+   */
   fetchToken(): Promise<string>;
   /**
-   * handle errors occurred during API call
+   * Handle errors occurred during API call
    * https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/src/types.ts
    */
   onError: OnError;
   /**
-   * configure image search params
+   * Configure image search params
    * Typescript types https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/src/api/searchImages.ts
    * Getty API https://api.gettyimages.com/swagger/index.html#Images
    */
-  searchParams?: SearchImagesParams;
-  // image size for editor preview, default DisplaySizeName.High = 'high_res_comp'
+  searchParams?: Omit<SearchImagesParams, 'phrase'>;
+  /**
+   * image size for editor preview, default DisplaySizeName.High = 'high_res_comp'
+   */
   displaySize?: DisplaySizeName;
 };
 

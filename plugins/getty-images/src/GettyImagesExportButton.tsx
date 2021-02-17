@@ -32,7 +32,9 @@ export type GettyImagesExportButtonProps = {
    * {GettyImage} image data object
    */
   onConfirm: OnConfirm;
-  // image size to generate final output, default ImageSize.Medium = 'medium'
+  /**
+   * image size to generate final output, default ImageSize.Medium = 'medium'
+   */
   imageSize?: ImageSize;
 };
 

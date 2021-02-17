@@ -1,0 +1,55 @@
+{
+  "name": "@pesdk/getty-images",
+  "version": "1.0.0",
+  "main": "dist/getty-images.js",
+  "umd:main": "dist/getty-images.umd.js",
+  "module": "dist/getty-images.m.js",
+  "esmodule": "dist/getty-images.modern.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "react-query": "3.5.12",
+    "use-debounce": "5.2.0"
+  },
+  "peerDependencies": {
+    "photoeditorsdk": "^5.10.0",
+    "react": ">= 16.8.6",
+    "react-dom": ">= 16.8.6",
+    "styled-components": ">= 4.0.0"
+  },
+  "scripts": {
+    "build": "yarn microbundle src/index.ts --jsx React.createElement --name PluginGettyImages"
+  },
+  "keywords": [
+    "photo",
+    "image",
+    "photoeditor",
+    "getty",
+    "sdk",
+    "api",
+    "search"
+  ],
+  "author": {
+    "name": "img.ly GmbH",
+    "email": "contact@img.ly"
+  },
+  "homepage": "https://www.photoeditorsdk.com/",
+  "bugs": {
+    "url": "https://support.photoeditorsdk.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imgly/pesdk-web-plugins.git",
+    "directory": "plugins/getty-images"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "BSD-3-Clause",
+  "licenseFilename": "LICENSE.md",
+  "readmeFilename": "README.md"
+}

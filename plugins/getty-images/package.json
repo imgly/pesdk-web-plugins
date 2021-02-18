@@ -1,6 +1,6 @@
 {
   "name": "@pesdk/getty-images",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "dist/getty-images.js",
   "umd:main": "dist/getty-images.umd.js",
   "module": "dist/getty-images.m.js",

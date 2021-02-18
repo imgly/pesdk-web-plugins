@@ -1,11 +1,10 @@
 # Getty Images plugin for PhotoEditor SDK
 
+This plugin helps to integrate Getty Images API into PhotoEditor SDK.
+
 ### Prerequisite
 
-This plugin helps to integrate Getty Images API into PhotoEditorSDK.
-
 You need to use your own backend endpoint that provides an [OAuth token](https://developer.gettyimages.com/docs/oauth-2.0/) for the Getty Images API.
-
 
 ### Getting Started
 

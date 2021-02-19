@@ -10,45 +10,14 @@
 */
 import React from 'react';
 
-import { DialogSpinner } from 'photoeditorsdk';
+import { AdvancedUIItemCard, DialogSpinner } from 'photoeditorsdk';
 import styled from 'styled-components';
-
-export const ToolbarWrapper = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  // will force the scrollbar in the ScrollContainer
-  min-height: 0px;
-`;
-
-export const SearchDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 16px 16px 0px;
-`;
-
-export const ScrollContainer = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  padding: 16px 24px;
-  flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: auto;
-`;
-
-export const CardContainer = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  flex-wrap: wrap;
-  /* width - padding on both sides */
-  width: ${props =>
-    props.theme.measurements.advancedUIToolControlBar.width - 48}px;
-`;
 
 const SpinnerWrapper = styled.div`
   display: flex;
   flex: 1 1 auto;
   justify-content: center;
+  padding: 0 10px;
 `;
 
 export const Spinner: React.FC = () => (
@@ -56,3 +25,74 @@ export const Spinner: React.FC = () => (
     <DialogSpinner />
   </SpinnerWrapper>
 );
+
+export const Advanced = {
+  SearchDiv: styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px 0px;
+  `,
+  ToolbarWrapper: styled.div`
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    // will force the scrollbar in the ScrollContainer
+    min-height: 0px;
+  `,
+  ScrollContainer: styled.div`
+    display: flex;
+    flex: 1 1 auto;
+    padding: 16px 24px;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  `,
+  CardContainer: styled.div`
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    /* width - padding on both sides */
+    width: ${props =>
+      props.theme.measurements.advancedUIToolControlBar.width - 48}px;
+  `,
+};
+
+export const Basic = {
+  SearchDiv: styled(Advanced.SearchDiv)`
+    margin-bottom: 16px;
+    width: 30%;
+    @media all and (min-width: 0) and (max-width: 599px) {
+      width: 60%;
+    }
+  `,
+  ToolbarWrapper: styled.div`
+    display: flex;
+    overflow: auto hidden;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  `,
+  ScrollContainer: styled.div`
+    display: flex;
+    overflow: auto hidden;
+    width: 100%;
+  `,
+  CardContainer: styled.ul.attrs(() => ({
+    role: 'menubar',
+    'aria-label': 'Tool Navigation',
+  }))`
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  `,
+  Card: styled(AdvancedUIItemCard)`
+    margin: 2px;
+    min-width: ${props => props.theme.measurements.basicCard.medium.width}px;
+    height: ${props => props.theme.measurements.basicCard.medium.height}px;
+    &:nth-child(2n + 1) {
+      margin-right: 2px;
+    }
+  `,
+};

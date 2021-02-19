@@ -8,9 +8,6 @@
   The license agreement can be found under the following link:
   https://www.photoeditorsdk.com/LICENSE.txt
 */
-export * from './api';
-export * from './components';
-export * from './GettyImagesExportButton';
-export * from './GettyImagesToolControlBar';
-export * from './helpers';
-export * from './types';
+export * from './AdvancedToolbar';
+export * from './BasicToolbar';
+export * from './Elements';

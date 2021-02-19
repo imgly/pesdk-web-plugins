@@ -1,7 +1,7 @@
 {
   "name": "photoeditorsdk-plugins",
   "version": "1.0.0",
-  "description": "Collection of PhotoEditorSDK plugins",
+  "description": "Collection of PhotoEditor SDK plugins",
   "private": true,
   "scripts": {
     "lint": "eslint ./plugins"

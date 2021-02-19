@@ -23,7 +23,7 @@ export const AdvancedToolbar = ({
   placeholder = '',
   setImage,
   setPhrase,
-}: ToolbarUiProps): React.ReactNode => {
+}: ToolbarUiProps): JSX.Element => {
   return (
     <Advanced.ToolbarWrapper>
       <Advanced.SearchDiv>

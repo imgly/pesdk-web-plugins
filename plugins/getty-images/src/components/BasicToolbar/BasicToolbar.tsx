@@ -32,7 +32,7 @@ export const BasicToolbar = ({
   placeholder = '',
   setImage,
   setPhrase,
-}: ToolbarUiProps): React.ReactNode => {
+}: ToolbarUiProps): JSX.Element => {
   const hasPages = Boolean(pages.length);
   return (
     <Basic.ToolbarWrapper>

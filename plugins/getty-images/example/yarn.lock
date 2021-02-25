@@ -1429,7 +1429,7 @@
     rimraf "^3.0.2"
 
 "@pesdk/getty-images@file:..":
-  version "0.0.1"
+  version "1.0.0"
   dependencies:
     react-query "3.5.12"
     use-debounce "5.2.0"
@@ -8010,10 +8010,10 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-photoeditorsdk@5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/photoeditorsdk/-/photoeditorsdk-5.10.0.tgz#2ddb8ccf0dd25c77d2391a46a734b345a0537c7a"
-  integrity sha512-ZeCO7RqF8BNF10ZhPVWuovE58SE+K5qeJG/zy1gHE63rZ2TUwRpDuZ+/Y0ztWr66rvAfPscOQ2LdA1kT98VQFA==
+photoeditorsdk@5.11.0:
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/photoeditorsdk/-/photoeditorsdk-5.11.0.tgz#d61086c106126d8f58ab6a9cd55a4c92ec1be34c"
+  integrity sha512-OLvvCr1PB3SpJqX0AgIT5ngb1nzW0XpItjO71P6Y2bi9oqUaWjgz3bGfFHLjkYymy4CdVvoYc66FyDWyBEaqZA==
 
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.2:
   version "2.2.2"

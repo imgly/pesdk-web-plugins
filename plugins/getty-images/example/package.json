@@ -19,9 +19,6 @@
   "scripts": {
     "start": "yarn && vite"
   },
-  "resolutions": {
-    "photoeditorsdk": "5.11.0"
-  },
   "browserslist": {
     "production": [
       ">0.2%",

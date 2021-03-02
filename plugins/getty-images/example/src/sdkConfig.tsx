@@ -88,7 +88,6 @@ export const sdkConfig: Configuration = {
   container: '.editor',
   license: '',
   assetBaseUrl: 'https://cdn.jsdelivr.net/npm/photoeditorsdk@latest/assets',
-  layout: 'basic',
   image:
     'https://images.unsplash.com/photo-1599713061074-9efa95376d3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
   defaultTool: Tool.CUSTOM,

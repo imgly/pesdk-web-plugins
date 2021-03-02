@@ -9,7 +9,7 @@
 
 ## Start the server
 
-1. Replace `REACT_APP_API_KEY` and `CLIENT_SECRET` values in `.env`
+1. Replace `VITE_APP_API_KEY` and `CLIENT_SECRET` values in `.env`
 2. Run `node server.js`
 
 ### Start the client

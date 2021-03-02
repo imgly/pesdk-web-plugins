@@ -3,27 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@pesdk/getty-images": "file:../",
+    "@pesdk/getty-images": "link:../",
     "photoeditorsdk": "5.11.0",
     "styled-components": "4.4.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "react-scripts": "4.0.2",
-    "typescript": "^4.1.2"
+    "vite": "2.0.4"
   },
   "scripts": {
-    "start": "yarn && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test"
+    "start": "yarn && vite"
+  },
+  "resolutions": {
+    "photoeditorsdk": "5.11.0"
   },
   "browserslist": {
     "production": [

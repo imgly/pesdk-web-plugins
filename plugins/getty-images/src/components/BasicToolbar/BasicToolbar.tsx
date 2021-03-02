@@ -57,7 +57,7 @@ export const BasicToolbar = ({
             </>
           )}
         </Basic.CardContainer>
-        {!hasPages && loading ? <Spinner /> : null}
+        {!hasPages && loading ? <Spinner paddingY={10} /> : null}
       </Basic.ScrollContainer>
     </Basic.ToolbarWrapper>
   );

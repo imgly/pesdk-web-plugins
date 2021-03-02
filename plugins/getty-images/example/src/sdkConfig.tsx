@@ -40,8 +40,9 @@ const fetchToken = () => {
     .then(r => r.access_token);
 };
 
+const apiKey = (import.meta.env.VITE_APP_API_KEY as string) || '';
 // const GettyToolbar = createGettyImagesToolbar({
-//         apiKey: process.env.REACT_APP_API_KEY || '',
+//         apiKey,
 //         fetchToken,
 //         onError: num => {
 //             console.log(`Caught error ${num}`);
@@ -53,7 +54,7 @@ const GettyToolbar: React.FC<CustomToolProps> = props => {
   return (
     <GettyImagesToolControlBar
       {...props}
-      apiKey={process.env.REACT_APP_API_KEY || ''}
+      apiKey={apiKey}
       fetchToken={fetchToken}
       searchParams={{
         sort_order: SortOrder.BestMatch,
@@ -87,6 +88,7 @@ export const sdkConfig: Configuration = {
   container: '.editor',
   license: '',
   assetBaseUrl: 'https://cdn.jsdelivr.net/npm/photoeditorsdk@latest/assets',
+  layout: 'basic',
   image:
     'https://images.unsplash.com/photo-1599713061074-9efa95376d3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
   defaultTool: Tool.CUSTOM,

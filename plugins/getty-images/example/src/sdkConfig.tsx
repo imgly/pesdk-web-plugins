@@ -40,8 +40,9 @@ const fetchToken = () => {
     .then(r => r.access_token);
 };
 
+const apiKey = (import.meta.env.VITE_APP_API_KEY as string) || '';
 // const GettyToolbar = createGettyImagesToolbar({
-//         apiKey: process.env.REACT_APP_API_KEY || '',
+//         apiKey,
 //         fetchToken,
 //         onError: num => {
 //             console.log(`Caught error ${num}`);
@@ -53,7 +54,7 @@ const GettyToolbar: React.FC<CustomToolProps> = props => {
   return (
     <GettyImagesToolControlBar
       {...props}
-      apiKey={process.env.REACT_APP_API_KEY || ''}
+      apiKey={apiKey}
       fetchToken={fetchToken}
       searchParams={{
         sort_order: SortOrder.BestMatch,

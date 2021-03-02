@@ -10,22 +10,27 @@
 */
 import React from 'react';
 
-import { AdvancedUIItemCard, CardType, Tool } from 'photoeditorsdk';
+import { CardType, CustomCardProps, Tool } from 'photoeditorsdk';
 
-import { GettyImage, DisplaySizeName } from '../../api';
+import { DisplaySizeName, GettyImage } from '../../api';
 import { getDisplaySize } from '../../helpers';
 
 type Props = {
   images: GettyImage[];
   onClick(image: GettyImage): void;
+  CardComponent: React.ElementType<CustomCardProps>;
 };
 
-export const GettyImagesCards: React.FC<Props> = ({ images, onClick }) => {
+export const GettyImagesCards: React.FC<Props> = ({
+  CardComponent,
+  images,
+  onClick,
+}) => {
   return (
     <>
       {images.map((image, index) => (
-        <AdvancedUIItemCard
-          tool={Tool.LIBRARY}
+        <CardComponent
+          tool={Tool.CUSTOM}
           type={CardType.MEDIUM}
           onClick={() => onClick(image)}
           key={image.id}

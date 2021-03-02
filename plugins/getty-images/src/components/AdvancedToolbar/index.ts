@@ -8,3 +8,4 @@
   The license agreement can be found under the following link:
   https://www.photoeditorsdk.com/LICENSE.txt
 */
+export * from './AdvancedToolbar';

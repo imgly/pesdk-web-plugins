@@ -3341,10 +3341,10 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-photoeditorsdk@5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/photoeditorsdk/-/photoeditorsdk-5.10.0.tgz#2ddb8ccf0dd25c77d2391a46a734b345a0537c7a"
-  integrity sha512-ZeCO7RqF8BNF10ZhPVWuovE58SE+K5qeJG/zy1gHE63rZ2TUwRpDuZ+/Y0ztWr66rvAfPscOQ2LdA1kT98VQFA==
+photoeditorsdk@5.11.0:
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/photoeditorsdk/-/photoeditorsdk-5.11.0.tgz#d61086c106126d8f58ab6a9cd55a4c92ec1be34c"
+  integrity sha512-OLvvCr1PB3SpJqX0AgIT5ngb1nzW0XpItjO71P6Y2bi9oqUaWjgz3bGfFHLjkYymy4CdVvoYc66FyDWyBEaqZA==
 
 picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.2:
   version "2.2.2"

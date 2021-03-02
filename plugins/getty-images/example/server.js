@@ -27,7 +27,7 @@ const options = {
   },
   form: {
     grant_type: 'client_credentials',
-    client_id: process.env.REACT_APP_API_KEY,
+    client_id: process.env.VITE_APP_API_KEY,
     client_secret: process.env.CLIENT_SECRET,
   },
 };

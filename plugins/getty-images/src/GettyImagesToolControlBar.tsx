@@ -14,7 +14,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   CustomToolbar,
   CustomToolProps,
-  SearchField,
+  useIsLayoutAdvanced,
   useSetImage,
 } from 'photoeditorsdk';
 import {
@@ -30,18 +30,13 @@ import {
   GettyImage,
   SearchImagesParams,
 } from './api';
-import { GettyImagesCards } from './components/GettyImagesCards';
+import { AdvancedToolbar } from './components/AdvancedToolbar';
+import { BasicToolbar, ToolbarUiProps } from './components/BasicToolbar';
+import { Spinner } from './components/Elements';
 import { getDisplaySize, gettyStore, hasNextPage } from './helpers';
 import { useIntersectionObserver } from './hooks/useIntersectionObserver';
 import { useToken } from './hooks/useToken';
 import { ErrorNames, OnError } from './types';
-import {
-  CardContainer,
-  ScrollContainer,
-  SearchDiv,
-  Spinner,
-  ToolbarWrapper,
-} from './components/Elements';
 
 interface Props {
   client: ReturnType<typeof createAPIClient>;
@@ -63,6 +58,12 @@ const ToolControlBar: React.FC<Props> = ({
   const [debouncedPhrase] = useDebounce(phrase, 1000);
   const setImage = useSetImage();
   const loadingRef = useRef<HTMLDivElement | null>(null);
+
+  const isAdvancedLayout = useIsLayoutAdvanced();
+
+  const ToolbarComponent: React.ElementType<ToolbarUiProps> = isAdvancedLayout
+    ? AdvancedToolbar
+    : BasicToolbar;
 
   const {
     data,
@@ -109,28 +110,14 @@ const ToolControlBar: React.FC<Props> = ({
   });
 
   return (
-    <ToolbarWrapper>
-      <SearchDiv>
-        <SearchField
-          onChange={setPhrase}
-          placeholder={language.placeholder || ''}
-        />
-      </SearchDiv>
-      <ScrollContainer>
-        <CardContainer>
-          {data?.pages.map((group, i) => (
-            <GettyImagesCards
-              // eslint-disable-next-line react/no-array-index-key
-              key={i}
-              images={group.images}
-              onClick={handleSetImage}
-            />
-          ))}
-          {loading && <Spinner />}
-          {data?.pages.length ? <div ref={loadingRef} /> : undefined}
-        </CardContainer>
-      </ScrollContainer>
-    </ToolbarWrapper>
+    <ToolbarComponent
+      loading={loading}
+      loadingRef={loadingRef}
+      placeholder={language.placeholder}
+      setPhrase={setPhrase}
+      setImage={handleSetImage}
+      pages={data?.pages || []}
+    />
   );
 };
 
@@ -166,11 +153,19 @@ export type GettyImagesToolbarProps = {
    * image size for editor preview, default DisplaySizeName.High = 'high_res_comp'
    */
   displaySize?: DisplaySizeName;
+  /**
+   * React component to show when token endpoint fails
+   */
+  ErrorComponent?: React.ElementType<{ language: CustomToolProps['language'] }>;
 };
+
+const Error = ({ language }: { language: CustomToolProps['language'] }) => (
+  <div>{language.error || 'Error'}</div>
+);
 
 export const GettyImagesToolControlBar: React.FC<
   CustomToolProps & GettyImagesToolbarProps
-> = ({ fetchToken, apiKey, onError, ...rest }) => {
+> = ({ fetchToken, apiKey, onError, ErrorComponent = Error, ...rest }) => {
   const { token, isLoading, isError, refetchToken } = useToken(
     fetchToken,
     onError,
@@ -197,7 +192,7 @@ export const GettyImagesToolControlBar: React.FC<
   }
 
   if (isError) {
-    return <div>Error</div>;
+    return <ErrorComponent language={rest.language} />;
   }
 
   return (

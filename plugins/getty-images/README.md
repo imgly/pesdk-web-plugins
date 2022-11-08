@@ -4,13 +4,16 @@ This plugin helps to integrate Getty Images API into PhotoEditor SDK.
 
 ### Prerequisite
 
-You need to use your own backend endpoint that provides an [OAuth token](https://developer.gettyimages.com/docs/oauth-2.0/) for the Getty Images API.
+You need to use your backend endpoint that provides an [OAuth token](https://developer.gettyimages.com/docs/oauth-2.0/) for the Getty Images API.
 
 ### Getting Started
 
 ```shell
 yarn add @pesdk/getty-images
-// npm install @pesdk/getty-images
+```
+or 
+```
+npm install --save @pesdk/getty-images
 ```
 
 
@@ -156,7 +159,7 @@ To override the toolbar you must keep:
 
 ## Localization
 
-The plugin accepts `title` and `placeholder` string in [localization object](https://docs.photoeditorsdk.com/guides/html5/v5_10/customization/localization)
+The plugin accepts `title` and `placeholder` string in [localization object](https://img.ly/docs/pesdk/web/customization/localization/)
 
 ```json
 {
@@ -173,10 +176,10 @@ The plugin accepts `title` and `placeholder` string in [localization object](htt
 
 
 ## PhotoEditor SDK Documentation
-Visit our [docs](https://docs.photoeditorsdk.com)
+Visit our [docs](https://img.ly/docs/pesdk/)
 
 ## License
 Please see [LICENSE](https://github.com/imgly/pesdk-web-plugins/tree/main/plugins/getty-images/LICENSE.md) for licensing details.
 
 ## Support and License
-Use our [service desk](https://support.photoeditorsdk.com) for bug reports or support requests. To request a commercial license, please use the [license request form](https://www.photoeditorsdk.com/pricing) on our website.
+Use our [service desk](https://img.ly/support) for bug reports or support requests. To request a commercial license, please use the [license request form](https://www.img.ly/pricing) on our website.

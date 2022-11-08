@@ -1,17 +1,8 @@
-/*
-  This file is part of an img.ly Software Development Kit.
-  Copyright (C) 2016-2021 img.ly GmbH <contact@img.ly>
-  All rights reserved.
-  Redistribution and use in source and binary forms, without
-  modification, are permitted provided that the following license agreement
-  is approved and a legal/financial contract was signed by the user.
-  The license agreement can be found under the following link:
-  https://www.photoeditorsdk.com/LICENSE.txt
-*/
 import {
   GettyImagesExportButton,
   GettyImagesToolControlBar,
   OnConfirm,
+  SearchImagesEndpoint,
   SortOrder,
 } from '@pesdk/getty-images';
 import {
@@ -58,7 +49,10 @@ const GettyToolbar: React.FC<CustomToolProps> = props => {
       fetchToken={fetchToken}
       searchParams={{
         sort_order: SortOrder.BestMatch,
+        orientations: [],
+        phrase: 'Adventure',
       }}
+      endpoint={SearchImagesEndpoint.Editorial}
       onError={num => {
         console.log(`Caught error ${num}`);
       }}
@@ -87,13 +81,25 @@ const GettyExportBtn: React.FC<CustomButtonProps> = props => {
 export const sdkConfig: Configuration = {
   container: '.editor',
   license: '',
-  assetBaseUrl: 'https://cdn.jsdelivr.net/npm/photoeditorsdk@latest/assets',
-  image:
-    'https://images.unsplash.com/photo-1599713061074-9efa95376d3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80',
+  assetBaseUrl:
+    'https://cdn.img.ly/packages/imgly/photoeditorsdk/latest/assets',
+  image: '',
   defaultTool: Tool.CUSTOM,
   tools: [Tool.TRANSFORM, Tool.CUSTOM, Tool.FILTER, Tool.STICKER, Tool.TEXT],
   [Tool.CUSTOM]: {
-    icon: () => <div>GIcon</div>,
+    icon: () => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={48}
+        height={48}
+        viewBox="0 0 98 97"
+        xmlSpace="preserve"
+      >
+        <g fill="currentColor">
+          <path d="M67.022 22.86c-4.467-.143-7.421.997-9.238 3.277-2.423-1.995-6.36-3.277-9.692-3.277-10.224 0-15.524 6.41-15.524 12.894 0 4.489 2.575 7.338 5.831 9.832-1.741.499-6.134 3.205-6.134 6.767 0 3.99 4.013 4.916 5.83 5.984v.143c-3.407 0-7.117 2.208-7.117 6.84 0 5.841 6.966 8.832 17.568 8.832 12.57 0 18.25-5.698 18.25-10.97 0-14.818-25.898-6.696-25.898-12.681 0-2.137 3.256-2.28 7.344-2.28 9.844 0 14.842-4.987 14.842-11.968 0-2.85-.909-4.987-2.12-6.554 1.44-.855 3.862-.855 6.058-.855V22.86zM46.274 59.904c9.087 0 11.888 2.565 11.888 4.275 0 1.282-2.044 4.132-8.102 4.132-7.875 0-10.45-1.283-10.45-4.132 0-1.567 1.515-4.275 6.664-4.275zm1.742-18.237c-4.013 0-6.816-2.706-6.816-6.127s2.803-6.126 6.816-6.126c3.558 0 6.436 2.706 6.436 6.126s-2.878 6.127-6.436 6.127z" />
+        </g>
+      </svg>
+    ),
     toolControlBar: GettyToolbar,
   },
   export: {

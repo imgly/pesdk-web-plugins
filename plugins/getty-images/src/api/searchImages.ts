@@ -1,13 +1,3 @@
-/*
-  This file is part of an img.ly Software Development Kit.
-  Copyright (C) 2016-2021 img.ly GmbH <contact@img.ly>
-  All rights reserved.
-  Redistribution and use in source and binary forms, without
-  modification, are permitted provided that the following license agreement
-  is approved and a legal/financial contract was signed by the user.
-  The license agreement can be found under the following link:
-  https://www.photoeditorsdk.com/LICENSE.txt
-*/
 export enum GraphicalStyle {
   FineArt = 'fine_art',
   Illustration = 'illustration',
@@ -39,6 +29,14 @@ export enum DisplaySizeName {
   Comp = 'comp',
   Mid = 'mid_res_comp',
   High = 'high_res_comp',
+}
+
+export enum Orientation {
+  Vertical = 'vertical',
+  Horizontal = 'horizontal',
+  Square = 'square',
+  PanoramicHorizontal = 'panoramic_horizontal',
+  PanoramicVertical = 'panoramic_vertical',
 }
 
 export type DisplaySize = {
@@ -98,12 +96,20 @@ type DownloadSize = {
   media_type: 'image/jpeg' | 'image/eps';
 };
 
+export enum LicenseModelImageRequest {
+  RightsManaged = 'rightsmanaged',
+  RoyaltyFree = 'royaltyfree',
+}
+
 export interface GettyImage {
   id: number;
   caption: string;
   asset_family: string;
   display_sizes: DisplaySize[];
-  license_model: string;
+  license_model: LicenseModelImageRequest;
+  collection_code: string;
+  collection_id: number;
+  collection_name: string;
   max_dimensions: {
     width: number;
     height: number;
@@ -120,3 +126,8 @@ export type SearchImagesResponse = {
   images: GettyImage[];
   nextCursor: number;
 };
+
+export enum SearchImagesEndpoint {
+  Editorial = 'editorial',
+  Creative = 'creative',
+}

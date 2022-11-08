@@ -1,15 +1,3 @@
-/*
-  This file is part of an img.ly Software Development Kit.
-  Copyright (C) 2016-2021 img.ly GmbH <contact@img.ly>
-  All rights reserved.
-  Redistribution and use in source and binary forms, without
-  modification, are permitted provided that the following license agreement
-  is approved and a legal/financial contract was signed by the user.
-  The license agreement can be found under the following link:
-  https://www.photoeditorsdk.com/LICENSE.txt
-*/
-const path = require('path');
-
 module.exports = {
   root: true,
   env: {
@@ -22,8 +10,9 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:cypress/recommended',
   ],
-  plugins: ['@typescript-eslint', 'header'],
+  plugins: ['@typescript-eslint'],
   globals: {},
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -59,7 +48,6 @@ module.exports = {
     },
   ],
   rules: {
-    'header/header': [2, path.join(__dirname, 'header.js')],
     'prettier/prettier': [
       'error',
       {
@@ -88,5 +76,7 @@ module.exports = {
       },
     ],
     'react/jsx-props-no-spreading': 'off',
+    'react/function-component-definition': 'off',
+    'react/jsx-no-constructed-context-values': 'warn',
   },
 };

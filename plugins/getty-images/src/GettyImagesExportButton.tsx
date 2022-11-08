@@ -1,13 +1,3 @@
-/*
-  This file is part of an img.ly Software Development Kit.
-  Copyright (C) 2016-2021 img.ly GmbH <contact@img.ly>
-  All rights reserved.
-  Redistribution and use in source and binary forms, without
-  modification, are permitted provided that the following license agreement
-  is approved and a legal/financial contract was signed by the user.
-  The license agreement can be found under the following link:
-  https://www.photoeditorsdk.com/LICENSE.txt
-*/
 import React, { useCallback, useState } from 'react';
 
 import {
@@ -21,8 +11,10 @@ import { GettyImage, ImageSize } from './api';
 import { getHeight, gettyStore } from './helpers';
 
 export type OnConfirm = (
-  onLicense: () => Promise<void>,
+  onExportLicensedImage: () => Promise<string>,
   image: GettyImage,
+  onLicense: () => Promise<string>,
+  onClick: () => void,
 ) => void;
 
 export type GettyImagesExportButtonProps = {
@@ -30,10 +22,12 @@ export type GettyImagesExportButtonProps = {
    * Function to be called before licensing an image
    * {function} callback to license an image
    * {GettyImage} image data object
+   * {function} callback to trigger the licensing of the image
+   * {function} callback to trigger an export for the currently loaded image
    */
   onConfirm: OnConfirm;
   /**
-   * image size to generate final output, default ImageSize.Medium = 'medium'
+   * Image size to generate final output, defaults to: ImageSize.Medium = 'medium'
    */
   imageSize?: ImageSize;
 };
@@ -45,27 +39,34 @@ export const GettyImagesExportButton: React.FC<
   const setImage = useSetImage();
 
   // license getty image
-  const onLicenseImage = useCallback(
+  const onLicenseImage = async () => {
+    const { img, client } = gettyStore.get();
+    if (!img || !client) {
+      throw new Error(`Image or API client not found to proceed licensing`);
+    }
+    const { uri } = await client.downloadImage(img.id, {
+      // download medium sized image or larges if not found
+      height: getHeight(img, imageSize),
+    });
+
+    // image licensed, clean it up from the getty store
+    gettyStore.set({
+      img: undefined,
+    });
+
+    return uri;
+  };
+
+  // download the licensed image
+  const onExportLicensedImage = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
-      const { img, client } = gettyStore.get();
-      if (!img || !client) {
-        throw new Error(`Image or API client not found to proceed licensing`);
-      }
       setLoading(true);
-      return client
-        .downloadImage(img.id, {
-          // download medium sized image or larges if not found
-          height: getHeight(img, imageSize),
-        })
-        .then(({ uri }) => {
-          setImage(uri);
-          onClick(e);
-          setLoading(false);
-          // image licensed, clean it up from the getty store
-          gettyStore.set({
-            img: undefined,
-          });
-        });
+      return onLicenseImage().then(uri => {
+        setImage(uri);
+        onClick(e);
+        setLoading(false);
+        return uri;
+      });
     },
     [],
   );
@@ -79,7 +80,12 @@ export const GettyImagesExportButton: React.FC<
         return;
       }
       // request confirmation to get the license
-      onConfirm(() => onLicenseImage(e), img);
+      onConfirm(
+        () => onExportLicensedImage(e),
+        img,
+        () => onLicenseImage(),
+        () => onClick(e),
+      );
     },
     [onClick, onLicenseImage, onConfirm],
   );
@@ -89,8 +95,8 @@ export const GettyImagesExportButton: React.FC<
   return <ContainedPrimaryButton {...rest} onClick={handleClick} />;
 };
 
-export const createGettyImagesExportButton = (
-  params: GettyImagesExportButtonProps,
-): React.FC<CustomButtonProps> => props => {
-  return <GettyImagesExportButton {...props} {...params} />;
-};
+export const createGettyImagesExportButton =
+  (params: GettyImagesExportButtonProps): React.FC<CustomButtonProps> =>
+  props => {
+    return <GettyImagesExportButton {...props} {...params} />;
+  };

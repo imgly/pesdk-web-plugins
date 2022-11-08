@@ -4,33 +4,37 @@
   "description": "Collection of PhotoEditor SDK plugins",
   "private": true,
   "scripts": {
+    "build": "yarn workspaces run build",
+    "release": "yarn workspaces run release",
     "lint": "eslint ./plugins"
   },
   "dependencies": {
+    "photoeditorsdk": "5.17.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "photoeditorsdk": "5.11.0",
     "styled-components": "4.4.1"
   },
   "devDependencies": {
-    "@types/react": "^17.0.1",
-    "@types/styled-components": "5.1.7",
-    "@typescript-eslint/eslint-plugin": "4.6.0",
-    "@typescript-eslint/parser": "4.6.0",
-    "eslint": "7.10.0",
-    "eslint-config-airbnb": "18.2.0",
-    "eslint-config-prettier": "6.12.0",
-    "eslint-import-resolver-typescript": "^2.3.0",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-jsx-a11y": "6.3.1",
-    "eslint-plugin-prettier": "3.1.4",
-    "eslint-plugin-react": "7.21.3",
-    "eslint-plugin-header": "3.1.1",
-    "microbundle": "0.13.0",
-    "prettier": "2.0.5",
-    "typescript": "4.0.7"
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.4",
+    "@types/styled-components": "4.4.0",
+    "@typescript-eslint/eslint-plugin": "5.27.0",
+    "@typescript-eslint/parser": "5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.30.0",
+    "prettier": "2.6.2",
+    "typescript": "^4.5.4"
   },
-  "workspaces": ["plugins/*"],
+  "workspaces": [
+    "plugins/*"
+  ],
   "author": {
     "name": "img.ly GmbH",
     "email": "contact@img.ly"

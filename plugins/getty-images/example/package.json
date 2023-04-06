@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@pesdk/getty-images": "file:../",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "npm-run-all": "^4.1.5",
     "photoeditorsdk": "^5.16.0",
     "react": "^17.0.1",
@@ -14,12 +14,11 @@
     "styled-components": "4.4.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.4",
-    "cypress": "^9.7.0",
-    "vite": "2.9.9"
+    "cypress": "^12.9.0",
+    "vite": "4.2.1"
   },
   "scripts": {
     "start": "vite",
@@ -27,7 +26,7 @@
     "build": "vite build",
     "ci:e2e:serve": "npx serve -s dist -l 8080",
     "ci:e2e:start": "yarn run build && run-p server ci:e2e:serve",
-    "ci:e2e:command": "cypress run --browser chrome --headless --project ./tests/e2e"
+    "ci:e2e:command": "cypress run --browser chrome --headless --project ./tests/"
   },
   "browserslist": {
     "production": [

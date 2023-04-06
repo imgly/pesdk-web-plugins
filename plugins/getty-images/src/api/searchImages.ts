@@ -104,7 +104,7 @@ export enum LicenseModelImageRequest {
 export interface GettyImage {
   id: number;
   caption: string;
-  asset_family: string;
+  asset_family: 'creative' | 'editorial';
   display_sizes: DisplaySize[];
   license_model: LicenseModelImageRequest;
   collection_code: string;
